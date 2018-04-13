@@ -1,0 +1,19 @@
+
+<html>
+	<script>
+		function go(){
+			window.document.getElementById("x").style.top=window.event.clientY;
+			window.document.getElementById("x").style.left=window.event.clientX + 15;
+		}
+		function pick(){
+			if(window.document.getElementById("t").value != ""){
+				window.document.getElementById("x").innerHTML = window.document.getElementById("t").value;
+			}
+		}
+	</script>
+	<body onmousemove="go()"></body>
+	<input id="t" onmouseleave="pick()">
+	<span id="x" style="position: absolute; top: 0; left: 0">
+		QAC
+	</span>
+</html>

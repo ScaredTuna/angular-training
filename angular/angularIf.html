@@ -1,0 +1,29 @@
+<html ng-app="app">
+	<script src="../angular-1.6.9/angular.js"></script>
+	<script>
+		let app = angular.module("app",[]);
+		app.controller("ctrl", function($scope){
+			$scope.phy=0;
+			$scope.che=0;
+			$scope.parseInt=parseInt;
+		});
+	</script>
+	<div ng-controller="ctrl">
+		Physics = <input ng-model="phy"><br>
+		Chemistry = <input ng-model="che"><br>
+		<br>
+		Result = {{parseInt(phy) + parseInt(che)}}
+		<br>
+		<br>
+		Physics: <b ng-if="phy>50">
+			PASS
+		</b><br>
+		Chemistry: <b ng-if="che>50">
+			PASS
+		</b><br>
+		<br>
+		Result: <b ng-if="parseInt(phy) + parseInt(che) > 100">
+			PASS
+		</b>
+	</div>
+</html>

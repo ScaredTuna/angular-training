@@ -1,0 +1,28 @@
+<html ng-app="app">
+	<script src="../angular-1.6.9/angular.js"></script>
+	<script src="addDelete.js"></script>
+	<div ng-controller="ctrl">
+		<table id="table" style="visibility: visible;">
+			<tr>
+				<th>Registration</th>
+				<th>Name</th>
+				<th>Marks</th>
+			</tr>
+			<tr ng-repeat="record in data">
+				<td>{{record.regNo}}</td>
+				<td>{{record.name}}</td>
+				<td>{{record.marks}}</td>
+				<td><input type="button" ng-click="removeRecord(record)" value="Delete"></td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<input type="button" style="visibility: visible;" id="addButton" ng-click="add()" value="Add New Record">
+		<form id="addForm" style="visibility: hidden;">
+			Registration Number: <input ng-model="tempData.regNo"><br>
+			Name: <input ng-model="tempData.name"><br>
+			Marks: <input ng-model="tempData.marks"><br>
+			<input type="button" value="Add" ng-click="addRecord()">
+		</form>
+	</div>
+</html>

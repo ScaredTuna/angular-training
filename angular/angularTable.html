@@ -1,0 +1,37 @@
+<html ng-app="app">
+	<script src="../angular-1.6.9/angular.js"></script>
+	<script>
+		let m1=angular.module("app",[]).controller("ctrl",function($scope){
+			$scope.records = [
+			{regNo:42,name:"Peter",marks:42},
+			{regNo:57,name:"Smith",marks:95},
+			{regNo:82,name:"John",marks:125},
+			{regNo:87,name:"Adam",marks:56},
+			{regNo:93,name:"Jane",marks:130},
+			{regNo:104,name:"Dan",marks:23},
+			{regNo:111,name:"Lucy",marks:108}
+			];
+		});
+	</script>
+	<div ng-controller="ctrl">
+		<table>
+			<tr>
+				<td>Registration</td>
+				<td>Name</td>
+				<td>Marks</td>
+				<td>Percentage</td>
+				<td>Result</td>
+			</tr>
+			<tr ng-repeat="record in records">
+				<td>{{record.regNo}}</td>
+				<td>{{record.name}}</td>
+				<td>{{record.marks}}</td>
+				<td>{{(record.marks * 100) / 150 | number:2}}</td>
+				<td>
+					<span ng-if="record.marks >= 90" style="color:green">Pass</span>
+					<span ng-if="record.marks < 90" style="color:red">Fail</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</html>

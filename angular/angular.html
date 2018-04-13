@@ -1,0 +1,13 @@
+<html ng-app="QA">
+	<script src="../angular-1.6.9/angular.js"></script>
+	<script>
+		let obj = angular.module("QA",[]);
+		let f1 = function($scope){
+			$scope.message = "Hello My Friends";
+		};
+		obj.controller("ctrl", f1);
+	</script>
+	<div ng-controller="ctrl">
+		{{message}}
+	</div>
+</html>

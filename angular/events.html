@@ -1,0 +1,23 @@
+<html ng-app>
+<script src="../angular-1.6.9/angular.min.js"></script>
+
+<input type="text" name="A" 
+ng-focus="data='got the focus'"
+ng-blur="data='focus gone'"
+ng-keypress="data='youhave pressed the key'"
+ng-copy="data='you are copying'"
+ng-cut="data='you are cutting'"
+ng-paste="data='you have pasted some thing'"
+/>
+<br>
+<br>
+<br>
+<button ng-mouseover="data='mouse pointer is over button now'"
+ng-mouseleave="data='mouse pointer has left button now'"
+ng-dblclick="data='mouse double click'"
+
+/> 
+Clicking me </button>
+<br><br><br><br><br>
+<span> {{data}}<span>
+</html>

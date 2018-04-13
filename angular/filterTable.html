@@ -1,0 +1,106 @@
+<html ng-app="app">
+	<head>
+	<script src="../angular-1.6.9/angular.js"></script>
+	<script>
+		let m1=angular.module("app",[]).controller("ctrl",function($scope){
+			$scope.records=[
+			{regNo:92,name:'Adam',client:'IBM',group:'Java',marks:75},
+			{regNo:123,name:'John',client:'IBM',group:'Java',marks:97},
+			{regNo:127,name:'Clare',client:'Santander',group:'BigData',marks:70},
+			{regNo:134,name:'Oliver',client:'TalkTalk',group:'.Net',marks:45},
+			{regNo:138,name:'Lucy',client:'Santander',group:'Java',marks:114},
+			{regNo:141,name:'Charles',client:'IBM',group:'BigData',marks:85},
+			{regNo:145,name:'Wendy',client:'TalkTalk',group:'.Net',marks:106},
+			{regNo:153,name:'Luke',client:'TalkTalk',group:'Java',marks:50},
+			{regNo:156,name:'Joe',client:'IBM',group:'BigData',marks:100},
+			{regNo:162,name:'Anne',client:'Santander',group:'Java',marks:66},
+			{regNo:169,name:'Tony',client:'IBM',group:'.Net',marks:36},
+			{regNo:177,name:'Sandy',client:'Santander',group:'BigData',marks:120}
+			]
+			$scope.field="regNo";
+			$scope.order=false;
+			$scope.match=false;
+			$scope.passOrFail = function(searchResult, marks){
+				if(searchResult == "Pass"){
+					return function(record){
+						return record[marks] >= 72;
+					}
+				} else if(searchResult == "Fail"){
+					return function(record){
+						return record[marks] < 72;
+					}
+				}
+			};
+		});
+		m1.filter("result", function(){
+			return function(marks){
+				if(marks >= 72){
+					return "Pass";
+				} else if(marks < 72){
+					return "Fail";
+				} else {
+					return "";
+				}
+			}
+		});
+		m1.filter("percentage", function(){
+			return function(x){
+				return (x * 100) / 120;
+			}
+		});
+		m1.filter("resultColour", function(){
+			return function(marks){
+				if(marks >= 72){
+					return "resultPass";
+				} else if(marks < 72){
+					return "resultFail";
+				} else {
+					return "A";
+				}
+			}
+		});
+	</script>
+	<style type="text/css">
+		.resultPass {color:green;}
+		.resultFail {color:red;}
+	</style>
+	</head>
+	<div ng-controller="ctrl">
+		Group: <input type="radio" name="group" value="Java" ng-model="search.group" ng-click="match=true"> Java 
+		<input type="radio" name="group" value=".Net" ng-model="search.group" ng-click="match=true"> .Net 
+		<input type="radio" name="group" value="BigData" ng-model="search.group" ng-click="match=true"> BigData 
+		<input type="radio" name="group" value='' ng-model="search.group" ng-click="match=false"> Any<br>
+		<br>
+		Results: <input type="radio" name="results" value="Pass" ng-model="searchResult" ng-click="match=true"> Pass 
+		<input type="radio" name="results" value="Fail" ng-model="searchResult" ng-click="match=true"> Fail 
+		<input type="radio" name="results" value='' ng-model="searchResult" ng-click="match=false"> Any<br>
+		<br>
+		Clients: <input type="radio" name="clients" value="IBM" ng-model="search.client" ng-click="match=true"> IBM 
+		<input type="radio" name="clients" value="Santander" ng-model="search.client" ng-click="match=true"> Santander 
+		<input type="radio" name="clients" value="TalkTalk" ng-model="search.client" ng-click="match=true"> TalkTalk 
+		<input type="radio" name="clients" value='' ng-model="search.client" ng-click="match=false"> Any<br>
+		<br>
+		Display Limit: <input type="number" ng-model="limit"><br>
+		<br>
+		<table>
+			<tr>
+				<th ng-click="field='regNo'; order=!order">Registration</th>
+				<th ng-click="field='name'; order=!order">Name</th>
+				<th ng-click="field='client'; order=!order">Client</th>
+				<th ng-click="field='group'; order=!order">Group</th>
+				<th ng-click="field='marks'; order=!order">Marks</th>
+				<th ng-click="field='marks'; order=!order">Percentage</th>
+				<th ng-click="field='marks'; order=!order">Result</th>
+			</tr>
+			<tr ng-repeat="record in records | filter: search | filter: passOrFail(searchResult, 'marks') | orderBy:field:order | limitTo:limit">
+				<td>{{record.regNo}}</td>
+				<td>{{record.name}}</td>
+				<td>{{record.client}}</td>
+				<td>{{record.group}}</td>
+				<td>{{record.marks}}</td>
+				<td>{{record.marks | percentage | number:2}}</td>
+				<td class="{{record.marks | resultColour}}">{{record.marks | result}}</td>
+			</tr>
+		</table>
+	</div>
+</html>

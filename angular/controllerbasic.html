@@ -1,0 +1,19 @@
+<html ng-app="app1">
+	<script src="../angular-1.6.9/angular.js"></script>
+	<script>
+		let app1 = angular.module("app1", []);
+		app1.controller("controller", function($scope){
+			$scope.info = {
+				regNo:25,
+				name:"Peter",
+				marks:75
+			};
+		});
+	</script>
+	<div ng-controller="controller">
+		{{info}}<br>
+		Registration Number = {{info.regNo}}<br>
+		Name = {{info.name}}<br>
+		Marks = {{info.marks}}<br>
+	</div>
+</html>

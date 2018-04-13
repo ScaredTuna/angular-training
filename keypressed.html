@@ -1,0 +1,11 @@
+<html>
+	<script>
+	function checkLetter(){
+		let key = window.event.keyCode;
+		if(key < 65 || (key > 90 && key < 97) || key > 112){
+			window.event.preventDefault();
+		}
+	}
+	</script>
+	<input type="text" id="input" onkeypress="return checkLetter()">
+</html>

@@ -1,0 +1,22 @@
+<html ng-app="app">
+	<script src="../angular-1.6.9/angular.js"></script>
+	<script>
+		let app1 = angular.module("app",[]);
+		app1.controller("controller", function($scope){
+			$scope.name = "Shafeeq";
+			$scope.message = function(){
+				$scope.a = 15;
+				return "Hello My Friends";
+			};
+			$scope.add = function(num1, num2){
+				return num1 + num2;
+			}
+		});
+	</script>
+	<div ng-controller="controller">
+		Name = {{name}} <br>
+		Message: {{message()}}<br>
+		A = {{a}}<br>
+		1 + 2 = {{add(1,2)}}
+	</div>
+</html>

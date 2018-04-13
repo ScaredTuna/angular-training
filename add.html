@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<script>
+		function add(){
+			for(let e = 0; e < window.document.forms[0].elements.length; e++){
+				if(window.document.forms[0].elements[e].type === "text"){
+					if(window.document.forms[0].elements[e].value === ""){
+						window.alert("Element " + (e + 1) + " is empty");
+						window.document.forms[0].elements[e].focus();
+					}
+				}
+			}
+		}
+	</script>
+	<form>
+		First:<input><br>
+		Second:<input><br>
+		Result:<input value="0"><br>
+		<input type="button" value="+" onclick="add()">
+	</form>
+</html>

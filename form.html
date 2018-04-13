@@ -1,0 +1,31 @@
+<html>
+	<script type="text/javascript">
+		function checkLetter(){
+			let key = window.event.keyCode;
+			if(key != 32 && (key < 65 || (key > 90 && key < 97) || key > 122)){
+				window.event.preventDefault();
+			}
+		}
+	</script>
+	<form name="form" action="process.html">
+		Name:<input type="text" name="name" onkeypress="checkLetter()"><br>
+		Address:<input type="text" name="address"><br>
+		Country:<select name="country">
+			<option value="c1">UK</option>
+			<option value="c2">USA</option>
+			<option value="c3">India</option>
+			<option value="c4">Other</option>
+		</select><br>
+		Gender:<br>
+			<input type="radio" name="gender" value="male">Male
+			<input type="radio" name="gender" value="female">Female
+			<input type="radio" name="gender" value="other">Other<br>
+		Account Type:<br>
+			<input type="radio" name="accountType" value="current">Current
+			<input type="radio" name="accountType" value="savings">Savings<br>
+		Sports Played:<br><input type="checkbox" name="cricket">Cricket<br>
+		<input type="checkbox" name="football">Football<br>
+		<input type="checkbox" name="badminton">Badminton<br>
+		<input type="submit" value="Submit">
+	</form>
+</html>

@@ -1,0 +1,21 @@
+<html ng-app="app1">
+	<script src="angular.js"></script>
+	<script src="getRequest.js"></script>
+	<body ng-controller="ctrl">
+	<input type="button" ng-click="fun()">
+	<table>
+		<tr>
+			<th>User Id</th>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Body</th>
+		</tr>
+		<tr ng-repeat="d in data | limitTo: 30">
+			<td>{{d.userId}}</td>
+			<td>{{d.id}}</td>
+			<td>{{d.title}}</td>
+			<td>{{d.body}}</td>
+		</tr>
+	</table>
+	</body>
+</html>

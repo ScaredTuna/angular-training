@@ -1,0 +1,22 @@
+let m = angular.module("app",[]).controller("ctrl",function($scope){
+	$scope.data=[
+		{regNo:23,name:"Shaun",marks:75},
+		{regNo:34,name:"Andrew",marks:56}
+	];
+	$scope.tempData={regNo:0,name:"",marks:0};
+	$scope.removeRecord=function(record){
+		$scope.data.splice($scope.data.indexOf(record),1);
+	};
+	$scope.addRecord=function(){
+		$scope.data.push($scope.tempData);
+		$scope.tempData={regNo:0,name:"",marks:0};
+		document.getElementById("addButton").style.visibility="visible";
+		document.getElementById("addForm").style.visibility="hidden";
+		document.getElementById("table").style.visibility="visible";
+	};
+	$scope.add=function(){
+		document.getElementById("addButton").style.visibility="hidden";
+		document.getElementById("addForm").style.visibility="visible";
+		document.getElementById("table").style.visibility="hidden";
+	}
+});

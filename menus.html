@@ -1,0 +1,33 @@
+
+<html>
+	<script>
+		function countryMenu(){
+			window.document.getElementById("countriesMenu").style.visibility="visible";
+			window.document.getElementById("sportsMenu").style.visibility="hidden";
+		}
+		function sportMenu(){
+			window.document.getElementById("sportsMenu").style.visibility="visible";
+			window.document.getElementById("countriesMenu").style.visibility="hidden";
+		}
+		function select(id){
+			window.document.getElementById(id).style.backgroundColor="blue";
+			window.document.getElementById(id).style.color="white";
+		}
+		function deselect(id){
+			window.document.getElementById(id).style.backgroundColor="AliceBlue";
+			window.document.getElementById(id).style.color="black";
+		}
+	</script>
+	<span id="country" style="position: absolute; top: 0; left:0; height: 30; width:150; background-color: AliceBlue; text-align: center; padding: 10px;" onmouseenter="countryMenu()">COUNTRIES</span>
+	<span id="sport" style="position: absolute; top:0; left:170; height:30; width:150; background-color: AliceBlue; text-align: center; padding: 10px;" onmouseenter="sportMenu()">SPORTS</span>
+	<span id="countriesMenu" style="position: absolute; top:50; left:0;background-color: AliceBlue; text-align: center;visibility: hidden;">
+		<span id="uk" style="position:absolute; top:0; left:0;height:20; width:160; text-align: center; background-color: AliceBlue; padding:5px;;" onmouseenter="select('uk')" onmouseleave="deselect('uk')">UK</span>
+		<span id="usa" style="position:absolute; top:30; left:0; height:20; width:160; text-align: center; background-color: AliceBlue; padding:5px;;" onmouseenter="select('usa')" onmouseleave="deselect('usa')">USA</span>
+		<span id="india" style="position:absolute; top:60; left:0; height:20; width:160; text-align: center; background-color: AliceBlue; padding:5px;" onmouseenter="select('india')" onmouseleave="deselect('india')">India</span>
+	</span>
+	<span id="sportsMenu" style="position:absolute; top:50; left:170;background-color:AliceBlue; visibility:hidden;">
+		<span id="cricket" style="position:absolute; top:0; left:0; height:20; width:160; text-align: center; background-color: AliceBlue; padding:5px;" onmouseenter="select('cricket')" onmouseleave="deselect('cricket')">Cricket</span>
+		<span id="football" style="position:absolute; top:30; left:0; height:20; width:160; text-align: center; background-color: AliceBlue; padding:5px;" onmouseenter="select('football')" onmouseleave="deselect('football')">Football</span>
+		<span id="rugby" style="position:absolute; top:60; left:0; height:20; width:160; text-align: center; background-color: AliceBlue; padding:5px;" onmouseenter="select('rugby')" onmouseleave="deselect('rugby')">Rugby</span>
+	</span>
+</html>

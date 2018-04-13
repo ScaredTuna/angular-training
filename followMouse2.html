@@ -1,0 +1,28 @@
+
+<html>
+	<script>
+		var fsize = 10;
+		function go(){
+			if(window.event.ctrlKey){
+				fsize++;
+			}
+			if(window.event.altKey){
+				fsize--;
+			}
+			window.document.getElementById("span").style.fontSize=fsize;
+			window.document.getElementById("span").style.top=window.event.clientY;
+			window.document.getElementById("span").style.left=window.event.clientX + 15;
+		}
+		function colour(colour){
+			window.document.getElementById("span").style.color=colour;
+		}
+	</script>
+	<body onmousemove="go()"></body>
+	<div id="red" onmouseenter="colour('green')" style="height:200; width:200;background-color: red; position: absolute; top:10%; left:10%;"></div>
+	<div id="blue" onmouseenter="colour('yellow')" style="height:200; width:200;background-color: blue; position: absolute; top:10%; left:70%;"></div>
+	<div id="green" onmouseenter="colour('blue')" style="height:200; width:200;background-color: green; position: absolute; top:70%; left:10%;"></div>
+	<div id="yellow" onmouseenter="colour('red')" style="height:200; width:200;background-color: yellow; position: absolute; top:70%; left:70%;"></div>
+	<span id="span" style="position: absolute; top: 0; left: 0">
+		QAConsulting
+	</span>
+</html>

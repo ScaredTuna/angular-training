@@ -1,0 +1,13 @@
+<html ng-app="app">
+	<script src="angular.js"></script>
+	<script src="ng-include.js"></script>
+	<div ng-controller="ctrl">
+		<select ng-model="fName">
+			<option value=""></option>
+			<option value="records1.html">Trainers</option>
+			<option value="records2.html">Trainers (Blue)</option>
+			<option value="records3.html">Trainers (Red)</option>
+		</select>
+		<div ng-include="fName"></div>
+	</div>
+</html>
